@@ -1,0 +1,125 @@
+{% extends 'account/formlayout.html' %}
+{%load static%}
+{%block content%}
+
+<!-- Title Header Start -->
+			<section class="inner-header-title" style="background-image:url(assets/img/banner-10.jpg);">
+				<div class="container">
+					<h1>Candidate Detail</h1>
+				</div>
+			</section>
+			<div class="clearfix">
+
+            </div>
+			<!-- Title Header End -->
+			
+			<!-- Candidate full detail Start -->
+            {% for p in profile%}
+			<section class="full-detail-description full-detail">
+				<div class="container">
+					<div class="row">
+						
+						<div class="col-lg-8 col-md-8">
+							
+							<div class="row-bottom">
+								<h2 class="detail-title">Course Description</h2>
+								<p>{{p.course.description}}</p>
+                                <h2 class="detail-title">{{p.course.courseTitle}}</h2>
+                                <img src="{{p.course.course_pic.url}}">
+                                <div class="job-detail-statistic flex-middle-sm">
+				
+								<div class="statistic-item flex-middle">
+									<div class="icon text-theme">
+									<i class="ti-timer theme-cl"></i></div>
+									<span class="text">start date: {{p.course.start_date}}</span>
+								</div>
+
+								<div class="statistic-item flex-middle">
+									<div class="icon text-theme">
+									<i class="ti-time theme-cl"></i></div>
+									<span class="text">Duration: {{p.course.duration}}</span>
+								</div>
+
+								<div class="statistic-item flex-middle">
+									<div class="icon text-theme">
+                                    <a href="{% url 'course_registration' %}">
+									<i class="ti-bag theme-cl"></i></div>
+									<span class="text">Enroll</span>
+                                    </a>
+								</div>
+
+							</div>
+							
+						</div>
+
+                    </div>
+						
+						<div class="col-lg-4 col-md-4">
+							<div class="full-sidebar-wrap">
+								
+								<a href="javascript:void(0)" data-toggle="modal" data-target="#apply-job" class="btn btn-info mrg-bot-15 full-width"><i class="ti-star mrg-r-5"></i>Enroll This Course</a>
+								
+								<!-- Candidate overview -->
+								<div class="sidebar-widgets">
+								
+									<div class="ur-detail-wrap">
+										<div class="ur-detail-wrap-header">
+											<h4>Course Overview</h4>
+										</div>
+										<div class="ur-detail-wrap-body">
+											<ul class="ove-detail-list">
+											
+												<li>
+													<i class="ti-wallet"></i>
+													<h5>Course Cost</h5>
+													<span>{{p.price}}</span>
+												</li>
+												
+												<li>
+													<i class="ti-user"></i>
+													<h5>Instructor</h5>
+													<span>{{p.author}}</span>
+												</li>
+												
+												
+												<li>
+													<i class="ti-home"></i>
+													<h5>Industry</h5>
+													<span>{{p.course.courseTitle}}</span>
+												</li>
+												
+												<li>
+													<i class="ti-shield"></i>
+													<h5>Experience</h5>
+													<span>15 Years</span>
+												</li>
+												
+												<li>
+													<i class="ti-book"></i>
+													<h5>Qualification</h5>
+													<span>Master Degree</span>
+												</li>
+
+                                                <li>
+													<i class="ti-agenda"></i>
+													
+													<span>Enroll</span>
+												</li>
+												
+											</ul>
+										</div>
+									</div>
+									
+								</div>
+								<!-- /Candidate overview -->
+								
+								
+							</div>
+						</div>
+						
+					</div>	
+				</div>
+			</section>
+            {%endfor%}
+<!-- Candidate full detail End -->
+{%endblock%}
