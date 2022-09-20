@@ -28,8 +28,10 @@ urlpatterns = [
     path('account/loginpage', include('project.urls')),
     path('account/profile', include('project.urls')),
     path('editprofile/<str:pk>', include('project.urls')),
+    path('delete_profile/<str:pk>', include('project.urls')),
     path('account/course_details/<str:pk>', include('project.urls')),
     path('course_registration', include('project.urls'))
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

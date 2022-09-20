@@ -1,0 +1,76 @@
+{% extends 'account/main_template.html' %}
+{%load static%}
+{%block content%}
+ 
+<!-- Overview -->
+										<div class="row">
+											<div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="dashboard-stat widget-1">
+													<div class="dashboard-stat-content"><h4>{{count_smm}}</h4> <span>Social Media Management</span></div>
+													<div class="dashboard-stat-icon"><i class="ti-location-pin"></i></div>
+												</div>	
+											</div>
+											
+											<div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="dashboard-stat widget-2">
+													<div class="dashboard-stat-content"><h4>{{count_gwd}}</h4> <span>Graphic &amp; Web Design</span></div>
+													<div class="dashboard-stat-icon"><i class="ti-layers"></i></div>
+												</div>	
+											</div>
+											
+											<div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="dashboard-stat widget-3">
+													<div class="dashboard-stat-content"><h4>{{count_mc}}</h4> <span>Marketing Communication</span></div>
+													<div class="dashboard-stat-icon"><i class="ti-pie-chart"></i></div>
+												</div>	
+											</div>
+											
+											<div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="dashboard-stat widget-4">
+													<div class="dashboard-stat-content"><h4>{{count_bm}}</h4> <span>Business &amp; Management</span></div>
+													<div class="dashboard-stat-icon"><i class="ti-bookmark"></i></div>
+												</div>	
+											</div>
+										</div>
+										
+										<!-- Notifications -->
+										<div class="row">
+											<div class="col-md-12">
+												<div class="dashboard-gravity-list with-icons">
+													<h4>Recent Activities</h4>
+													<table class ="table table-striped">
+                                                        <tr>
+                                                            <thead>
+                                                                <th>Name</th>
+                                                                <th>Gender</th>
+                                                                <th>Contact</th>
+                                                                <th>Address</th>
+                                                                <th>Username</th>
+
+                                                                <th></th>
+                                                                <th></th>
+
+                                                            </thead>
+                                                        </tr>
+                                                        <tbody>
+                                                            {%for p in profile%}
+                                                            <tr>
+                                                                <td>{{p.fname}}</td>
+                                                                <td>{{p.gender}}</td>
+                                                                <td>{{p.contact}}</td>
+                                                                <td>{{p.address}}</td>
+                                                                <td>{{p.user}}</td>
+
+                                                                <td><a class="btn btn-warning" href="{% url 'editprofile' p.id %}">update</a></td>
+                                                                <td><a class="btn btn-danger" href="{% url 'delete_profile' p.id %}">delete</a></td>
+                                                            </tr>
+                                                            {%endfor%}
+                                                        </tbody>
+
+                                                    </table>
+												</div>
+											</div>
+												
+										</div>
+
+{%endblock%}
